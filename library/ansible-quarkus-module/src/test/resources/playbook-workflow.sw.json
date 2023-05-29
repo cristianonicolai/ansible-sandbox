@@ -1,0 +1,42 @@
+{
+  "id": "playbook",
+  "version": "1.0",
+  "specVersion": "0.8",
+  "name": "Playbook Workflow",
+  "description": "Ansible Playbook workflow",
+  "start": "StartPlaybook",
+  "states": [
+    {
+      "name": "StartPlaybook",
+      "type": "inject",
+      "data": {
+        "mantra": "Serverless Workflow is awesome!"
+      },
+      "transition": "playbook"
+    },
+    {
+      "name": "playbook",
+      "type": "operation",
+      "actions": [
+        {
+          "functionRef": {
+            "refName": "ansible:playbook",
+            "arguments": {
+              "name": "src/test/resources/playbook.yaml",
+              "args": "-i mywebservers -e ${mantra}"
+            }
+          }
+        }
+      ],
+      "transition": "finish"
+    },
+    {
+      "name": "finish",
+      "type": "inject",
+      "data": {
+        "finish": "done!"
+      },
+      "end": true
+    }
+  ]
+}

@@ -5,3 +5,5 @@ TODO
 *-artifact-*.json
 
 ansible-navigator.log
+
+.DS_Store

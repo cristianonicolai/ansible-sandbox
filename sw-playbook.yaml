@@ -1,0 +1,14 @@
+- name: test sw module
+  hosts: virtualmachines
+  tasks:
+    - name: copy file from local host to remote host (relative path, ./files/)
+      copy:
+        src:  playbook-workflow.sw.json
+        dest: /tmp/playbook-workflow.sw.json
+    - name: run the java module
+      ansible-quarkus-module-runner:
+        definition: /tmp/playbook-workflow.sw.json
+      register: testout
+    - name: dump java test output
+      debug:
+        msg: "{{ testout }}"

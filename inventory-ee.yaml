@@ -3,4 +3,5 @@ virtualmachines:
     vm01:
       ansible_host: host.docker.internal
       ansible_user: user1
+      ansible_password: password1
       ansible_port: 2222

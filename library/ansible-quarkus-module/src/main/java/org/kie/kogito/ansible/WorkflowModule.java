@@ -1,7 +1,7 @@
 package org.kie.kogito.ansible;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.inject.Produces;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import org.kie.kogito.serverless.workflow.executor.StaticWorkflowApplication;
 
 @ApplicationScoped
